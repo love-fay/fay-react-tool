@@ -1,11 +1,11 @@
 {
-  "name": "rj-tool",
-  "version": "0.0.1-Alpha.38",
-  "description": "rj tool",
+  "name": "fay-react-tool",
+  "version": "0.0.1-alpha.1",
+  "description": "fay react tool",
   "scripts": {
     "start": "node_modules/.bin/webpack-cli serve --config ./test/config/webpack/default/webpack.config.js --color --progress",
     "build": "npx webpack-cli --config ./test/config/webpack/default/webpack.pro.config.js --color --progress",
-    "pub": "rm -rf pub && mkdir pub && cp -r config pub/config && cp package.json pub && cd pub && npm publish --registry=http://205.0.0.19:7005 && cd .. && rm -rf pub"
+    "pub": "rm -rf pub && mkdir pub && cp -r config pub/config && cp package.json pub && cd pub && npm publish && cd .. && rm -rf pub"
   },
   "private": false,
   "keywords": [

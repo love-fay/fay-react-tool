@@ -1,8 +1,8 @@
-# rj tool
-####榕基工具
+# fay react tool
+####一个react应用的构建工具
 
 此工具目前主要提供webpack相关的配置
 
-为法院所有项目做构建工具
+为应用项目做构建工具
 
-> 发布：首先需要保持npm在http://205.0.0.19:7005中的登录状态(rj/rj123456)，然后执行npm run pub
+> 发布：npm run pub
