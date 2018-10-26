@@ -33,7 +33,7 @@ module.exports = ({rootDir, port = '8000'}) => {
             getCopyPlugin(rootDir),
             getMiniCssExtractPlugin(),
             new HtmlWebpackPlugin({
-                template: rootDir + '/node_modules/rj-tool/config/index.html',
+                template: rootDir + '/node_modules/fay-react-tool/config/index.html',
             }),
             new webpack.HotModuleReplacementPlugin(),
         ],

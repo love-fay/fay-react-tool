@@ -3,7 +3,7 @@ function getProxy(rootDir){
         '/resource':'http://205.0.0.19:8000'
     };
     try{
-        const {apiServer, imKeepAliveServer, imServer} = require(rootDir + '/app/config.js');
+        const {apiServer} = require(rootDir + '/app/config.js');
 
         apiServer && (proxy = {
             ...proxy,
@@ -12,22 +12,7 @@ function getProxy(rootDir){
                 pathRewrite: {'^/api': ''}
             }
         });
-        imKeepAliveServer && (proxy = {
-            ...proxy,
-            '/imKeepAliveServer':{
-                target: imKeepAliveServer,
-                pathRewrite: {'^/imKeepAliveServer': ''}
-            }
-        });
-        imServer && (proxy = {
-            ...proxy,
-            '/imServer':{
-                target: imServer,
-                pathRewrite: {'^/imServer': ''}
-            }
-        });
-
-        console.log('proxy: /api->'+apiServer+' /imKeepAliveServer->'+imKeepAliveServer+' /imServer->'+imServer);
+        console.log('proxy: /api->'+apiServer);
     } catch (e) {
         console.log(e);
     }

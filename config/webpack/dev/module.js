@@ -2,6 +2,7 @@
 const autoprefixerFromPostcss = require('autoprefixer');
 const cssnanoFromPostcss = require('cssnano');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const Fiber = require('fibers');
 
 module.exports = {
     rules: [
@@ -85,6 +86,20 @@ module.exports = {
                     javascriptEnabled: true
                 }
             }],
+        },
+        {
+            test: /\.scss$/,
+            use: [{
+                loader: "style-loader"
+            }, {
+                loader: "css-loader"
+            }, {
+                loader: "sass-loader",
+                options: {
+                    implementation: require("dart-sass"),
+                    fiber: Fiber
+                }
+            }]
         },
         {
             test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)$/,
