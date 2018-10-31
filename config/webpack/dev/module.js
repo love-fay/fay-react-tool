@@ -3,6 +3,7 @@ const autoprefixerFromPostcss = require('autoprefixer');
 const cssnanoFromPostcss = require('cssnano');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const Fiber = require('fibers');
+const { dirname, join, resolve } = require('path');
 
 module.exports = {
     rules: [
@@ -96,6 +97,7 @@ module.exports = {
             }, {
                 loader: "sass-loader",
                 options: {
+                    includePaths: ['./node_modules'],
                     implementation: require("dart-sass"),
                     fiber: Fiber
                 }

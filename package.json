@@ -1,11 +1,11 @@
 {
-  "name": "fay-react-tool",
-  "version": "0.0.1-alpha.3",
+  "name": "@fay-react/tool",
+  "version": "0.0.1-alpha.1",
   "description": "fay react tool",
   "scripts": {
     "start": "node_modules/.bin/webpack-cli serve --config ./test/config/webpack/default/webpack.config.js --color --progress",
     "build": "npx webpack-cli --config ./test/config/webpack/default/webpack.pro.config.js --color --progress",
-    "pub": "rm -rf pub && mkdir pub && cp -r config pub/config && cp package.json pub && cd pub && npm publish && cd .. && rm -rf pub"
+    "pub": "rm -rf pub && mkdir pub && cp -r config pub/config && cp package.json pub && cd pub && npm publish --access public && cd .. && rm -rf pub"
   },
   "private": false,
   "keywords": [
@@ -30,7 +30,7 @@
     "README.md"
   ],
   "email": "869770665@qq.com",
-  "author": "fay462298322",
+  "author": "fay",
   "license": "MIT",
   "peerDependencies": {},
   "devDependencies": {
@@ -69,7 +69,6 @@
     "optimize-css-assets-webpack-plugin": "^5.0.0",
     "path": "0.12.7",
     "postcss-loader": "3.0.0",
-    "preload-webpack-plugin": "2.3.0",
     "raf": "3.4.0",
     "sass-loader": "^7.1.0",
     "source-map-loader": "0.2.4",

@@ -24,6 +24,10 @@ module.exports = ({rootDir, port = '8000'}) => {
 
         optimization: optimization,
 
+        resolve: {
+            extensions: ['.js', '.scss']
+        },
+
         plugins: [
             new CleanPlugin(['public'], {
                 'root': rootDir,
