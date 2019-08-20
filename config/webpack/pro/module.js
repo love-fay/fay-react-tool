@@ -29,6 +29,46 @@ module.exports = {
             ],
         },
         {
+            test: /\.tsx?$/,
+            exclude: /node_modules/,
+            use: {
+                loader: 'babel-loader',
+                options: {
+                    presets: [[
+                        "@babel/preset-typescript", {
+                            'isTSX': true,
+                            'allExtensions': true
+                        }],
+                    '@babel/preset-react',
+                        ['@babel/preset-env',{
+                            'targets': {
+                                'chrome': '70'
+                            },
+                            'modules': false,
+                            'loose': true,
+                            'useBuiltIns': 'usage',
+                        },
+                        ]
+                    ],
+                    plugins: [
+                        '@babel/plugin-proposal-class-properties',
+                        '@babel/plugin-syntax-dynamic-import',
+                        [
+                            '@babel/plugin-transform-runtime', {
+                            'corejs': 2,
+                        },
+                        ],
+                        [
+                            '@babel/plugin-proposal-object-rest-spread', {
+                            'useBuiltIns': true
+                        },
+                        ],
+                        'transform-remove-console'
+                    ],
+                },
+            },
+        },
+        {
             test: /\.js$/,
             exclude: /node_modules/,
             use: {
@@ -36,13 +76,10 @@ module.exports = {
                 options: {
                     presets: ['@babel/preset-react',
                         ['@babel/preset-env',{
-                            'targets': {
-                                "chrome": 52,
-                                "ie": 9
-                            },
+                            'targets': '> 0.25%, not dead',
                             'modules': false,
                             'loose': true,
-                            'useBuiltIns': 'entry',
+                            'useBuiltIns': 'usage',
                         },
                         ]
                     ],
@@ -93,10 +130,18 @@ module.exports = {
             }, {
                 loader: "css-loader"
             }, {
+                loader: 'postcss-loader',
+                options: {
+                    plugins: (loader) => [
+                        autoprefixerFromPostcss(),
+                        cssnanoFromPostcss(),
+                    ],
+                },
+            }, {
                 loader: "sass-loader",
                 options: {
                     includePaths: ['./node_modules'],
-                    implementation: require("dart-sass"),
+                    implementation: require("sass"),
                     fiber: Fiber
                 }
             }]

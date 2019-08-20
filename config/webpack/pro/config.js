@@ -2,39 +2,52 @@
  * Created by feichongzheng on 16/12/7.
  */
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanPlugin = require('clean-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const webpackModule = require('./module');
 const getCopyPlugin = require('./copyPlugin');
 const getMiniCssExtractPlugin = require('./miniCssExtractPlugin');
 const optimization = require('./optimization');
 
-module.exports = ({rootDir}) => {
+module.exports = ({rootDir, template, entry}) => {
     return {
         mode: 'production',
 
         stats: {children: false},
 
-        entry: ['@babel/polyfill', 'raf/polyfill', 'whatwg-fetch', rootDir + '/app/index.js'],
+        entry: ['raf/polyfill', 'whatwg-fetch', entry],
 
         output: {
             path: rootDir + '/dist',
             filename: 'js/[name]-[hash:8].js',
         },
 
+        resolve: {
+            extensions: [ '.tsx', '.ts', '.js', '.scss' ]
+        },
+
+        // node: {
+        //     fs: 'empty'
+        // },
+        //
+        // externals: [
+        //     {
+        //         './cptable': 'var cptable'
+        //     },
+        //     {
+        //         './jszip': 'jszip'
+        //     }
+        // ],
+
         module: webpackModule,
 
         optimization: optimization,
 
         plugins: [
-            new CleanPlugin(['dist'], {
-                'root': rootDir,
-                'verbose': true,
-                'dry': false,
-            }),
+            new CleanWebpackPlugin(),
             getCopyPlugin(rootDir),
             getMiniCssExtractPlugin(),
             new HtmlWebpackPlugin({
-                template: rootDir + '/node_modules/fay-react-tool/config/index.html',
+                template: template,
             }),
         ],
     }

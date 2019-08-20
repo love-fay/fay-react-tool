@@ -1,20 +1,24 @@
-function getProxy(rootDir){
-    let proxy={
-        '/resource':'http://205.0.0.19:8000'
-    };
-    try{
-        const {apiServer} = require(rootDir + '/app/config.js');
+const fs = require('fs');
+const path = require('path');
 
-        apiServer && (proxy = {
-            ...proxy,
-            '/api':{
-                target: apiServer,
-                pathRewrite: {'^/api': ''}
-            }
-        });
-        console.log('proxy: /api->'+apiServer);
+function getProxy(rootDir){
+    let proxy={};
+    try{
+        const filePath = path.join(rootDir, '/../app/config.js');
+        const status = fs.statSync(filePath);
+        if(status.isFile()){
+            const {apiServer} = require(filePath);
+            apiServer && (proxy = {
+                ...proxy,
+                '/api':{
+                    target: apiServer,
+                    pathRewrite: {'^/api': ''}
+                }
+            });
+            console.log('proxy: /api->'+apiServer);
+        }
     } catch (e) {
-        console.log(e);
+        // console.log(e);
     }
     return proxy;
 }

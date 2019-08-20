@@ -3,7 +3,7 @@
  */
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanPlugin = require('clean-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const path = require('path');
 const webpackModule = require('./module');
 const getProxy = require('./proxy');
@@ -11,10 +11,10 @@ const getCopyPlugin = require('./copyPlugin');
 const getMiniCssExtractPlugin = require('./miniCssExtractPlugin');
 const optimization = require('./optimization');
 
-module.exports = ({rootDir, port = '8000'}) => {
+module.exports = ({rootDir, port = '8000', template, entry}) => {
     return {
         mode: 'development',
-        entry: ['@babel/polyfill', 'raf/polyfill', 'whatwg-fetch', rootDir + '/app/index.js'],
+        entry: ['raf/polyfill', 'whatwg-fetch', entry],
         output: {
             path: rootDir + '/public',
             filename: 'js/[name].[hash:8].bundle.js'
@@ -25,24 +25,33 @@ module.exports = ({rootDir, port = '8000'}) => {
         optimization: optimization,
 
         resolve: {
-            extensions: ['.js', '.scss']
+            extensions: [ '.tsx', '.ts', '.js', '.scss' ]
         },
 
+        // node: {
+        //     fs: 'empty'
+        // },
+
+        // externals: [
+        //     {
+        //         './cptable': 'var cptable'
+        //     },
+        //     {
+        //         './jszip': 'jszip'
+        //     }
+        // ],
+
         plugins: [
-            new CleanPlugin(['public'], {
-                'root': rootDir,
-                'verbose': true,
-                'dry': false,
-            }),
+            new CleanWebpackPlugin(),
             getCopyPlugin(rootDir),
             getMiniCssExtractPlugin(),
             new HtmlWebpackPlugin({
-                template: rootDir + '/node_modules/fay-react-tool/config/index.html',
+                template: template,
             }),
             new webpack.HotModuleReplacementPlugin(),
         ],
 
-        devtool: 'source-map',
+        devtool: 'inline-source-map',
 
         devServer: {
             contentBase: path.join(rootDir, 'public'),

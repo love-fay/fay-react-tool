@@ -1,13 +1,18 @@
 {
-  "presets": ["@babel/preset-react",
+  "presets": [
+    ["@babel/preset-typescript", {
+      "isTSX": true,
+      "allExtensions": true
+    }],
+    "@babel/preset-react",
     ["@babel/preset-env",{
       "targets": {
-        "chrome": 52,
-        "ie": 9
+        "chrome": 70
       },
       "modules": false,
       "loose": true,
-      "useBuiltIns": "entry"
+      "useBuiltIns": "usage",
+      "corejs": { "version": 3, "proposals": true }
     }
     ]
   ],
