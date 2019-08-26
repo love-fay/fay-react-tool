@@ -1,6 +1,6 @@
 {
   "name": "@fay-react/tool",
-  "version": "0.0.1-alpha.7",
+  "version": "0.0.1-alpha.8",
   "description": "fay react tool",
   "scripts": {
     "start": "node_modules/.bin/webpack-cli serve --config ./app/webpack.config.dev.js --color --progress",
@@ -84,6 +84,6 @@
     "whatwg-fetch": "3.0.0"
   },
   "devEngines": {
-    "node": "8.x || 9.x"
+    "node": "8.x || 9.x || 10.x"
   }
 }

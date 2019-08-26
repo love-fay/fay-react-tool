@@ -47,6 +47,7 @@ module.exports = {
                             'modules': false,
                             'loose': true,
                             'useBuiltIns': 'usage',
+                            'corejs': { version: 3, proposals: true }
                         },
                         ]
                     ],
@@ -76,10 +77,13 @@ module.exports = {
                 options: {
                     presets: ['@babel/preset-react',
                         ['@babel/preset-env',{
-                            'targets': '> 0.25%, not dead',
+                            'targets': {
+                                'chrome': '70'
+                            },
                             'modules': false,
                             'loose': true,
                             'useBuiltIns': 'usage',
+                            'corejs': { version: 3, proposals: true }
                         },
                         ]
                     ],

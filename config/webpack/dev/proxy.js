@@ -4,21 +4,17 @@ const path = require('path');
 function getProxy(rootDir){
     let proxy={};
     try{
-        const filePath = path.join(rootDir, '/../app/config.js');
+        const filePath = path.join(rootDir, '/app/proxy.json');
         const status = fs.statSync(filePath);
         if(status.isFile()){
-            const {apiServer} = require(filePath);
-            apiServer && (proxy = {
-                ...proxy,
-                '/api':{
-                    target: apiServer,
-                    pathRewrite: {'^/api': ''}
-                }
-            });
-            console.log('proxy: /api->'+apiServer);
+            const appProxy = require(filePath);
+            appProxy.map((item, i) => {
+                proxy = {...proxy, ['/'+item.path]: {target: item.target, pathRewrite: {['^/'+item.path]: ''}}}
+                console.log('proxy: /'+item.path+'->'+item.target);
+            })
         }
     } catch (e) {
-        // console.log(e);
+        console.log(e);
     }
     return proxy;
 }
