@@ -62,7 +62,7 @@ module.exports = ({rootDir, port = '8000', template, entry}) => {
             inline: true,
             hot: true,
             hotOnly: true,
-            proxy: getProxy(rootDir),
+            proxy: getProxy(entry),
             stats: {children: false}
         },
     };

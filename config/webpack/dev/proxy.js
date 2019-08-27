@@ -4,7 +4,7 @@ const path = require('path');
 function getProxy(rootDir){
     let proxy={};
     try{
-        const filePath = path.join(rootDir, '/app/proxy.json');
+        const filePath = path.join(rootDir, '/proxy.json');
         const status = fs.statSync(filePath);
         if(status.isFile()){
             const appProxy = require(filePath);
