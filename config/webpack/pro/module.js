@@ -2,6 +2,7 @@ const autoprefixerFromPostcss = require('autoprefixer');
 const cssnanoFromPostcss = require('cssnano');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const Fiber = require('fibers');
+const {plugins, presets} = require('../../babel/pro/babel.config');
 
 module.exports = {
     rules: [
@@ -29,79 +30,13 @@ module.exports = {
             ],
         },
         {
-            test: /\.tsx?$/,
+            test: /\.tsx?$|\.js$/,
             exclude: /node_modules/,
             use: {
                 loader: 'babel-loader',
                 options: {
-                    presets: [[
-                        "@babel/preset-typescript", {
-                            'isTSX': true,
-                            'allExtensions': true
-                        }],
-                    '@babel/preset-react',
-                        ['@babel/preset-env',{
-                            'targets': {
-                                'chrome': '70'
-                            },
-                            'modules': false,
-                            'loose': true,
-                            'useBuiltIns': 'usage',
-                            'corejs': { version: 3, proposals: true }
-                        },
-                        ]
-                    ],
-                    plugins: [
-                        '@babel/plugin-proposal-class-properties',
-                        '@babel/plugin-syntax-dynamic-import',
-                        [
-                            '@babel/plugin-transform-runtime', {
-                            'corejs': 2,
-                        },
-                        ],
-                        [
-                            '@babel/plugin-proposal-object-rest-spread', {
-                            'useBuiltIns': true
-                        },
-                        ],
-                        'transform-remove-console'
-                    ],
-                },
-            },
-        },
-        {
-            test: /\.js$/,
-            exclude: /node_modules/,
-            use: {
-                loader: 'babel-loader',
-                options: {
-                    presets: ['@babel/preset-react',
-                        ['@babel/preset-env',{
-                            'targets': {
-                                'chrome': '70'
-                            },
-                            'modules': false,
-                            'loose': true,
-                            'useBuiltIns': 'usage',
-                            'corejs': { version: 3, proposals: true }
-                        },
-                        ]
-                    ],
-                    plugins: [
-                        '@babel/plugin-proposal-class-properties',
-                        '@babel/plugin-syntax-dynamic-import',
-                        [
-                            '@babel/plugin-transform-runtime', {
-                                'corejs': 2,
-                            },
-                        ],
-                        [
-                            '@babel/plugin-proposal-object-rest-spread', {
-                                'useBuiltIns': true
-                            },
-                        ],
-                        'transform-remove-console'
-                    ],
+                    presets,
+                    plugins,
                 },
             },
         },

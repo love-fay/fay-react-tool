@@ -1,8 +1,24 @@
 # fay react tool
-####一个react应用的构建工具
+####react app build tool
 
-此工具目前主要提供webpack相关的配置
+Let's focus attention in our applications.
 
-为应用项目做构建工具
+***
 
-> 发布：npm run pub
+####config
+* [babel]()
+* nginx
+* typescript
+* webpack
+
+#Usage
+
+app root directory structure:
+* src
+* assets
+
+start
+* node_modules/.bin/webpack-cli serve --config node_modules/@fay-react/tool/config/webpack/default/webpack.config.js --color --progress
+
+build
+* node_modules/.bin/webpack-cli --config node_modules/@fay-react/tool/config/webpack/default/webpack.pro.config.js --color --progress

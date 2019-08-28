@@ -4,6 +4,7 @@ const cssnanoFromPostcss = require('cssnano');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const Fiber = require('fibers');
 const { dirname, join, resolve } = require('path');
+const {plugins, presets} = require('../../babel/dev/babel.config');
 
 module.exports = {
     rules: [
@@ -31,79 +32,13 @@ module.exports = {
             ],
         },
         {
-            test: /\.tsx?$/,
+            test: /\.tsx?$|\.jsx?$/,
             exclude: /node_modules/,
             use: {
                 loader: 'babel-loader?cacheDirectory',
                 options: {
-                    presets: [
-                        ["@babel/preset-typescript", {
-                            'isTSX': true,
-                            'allExtensions': true
-                        }],
-                        '@babel/preset-react',
-                        ['@babel/preset-env',{
-                            'targets': {
-                                'chrome': '70'
-                            },
-                            'modules': false,
-                            'loose': true,
-                            'useBuiltIns': 'usage',
-                            'debug': true,
-                            'corejs': { version: 3, proposals: true }
-                        },
-                        ]
-                    ],
-                    plugins: [
-                        '@babel/plugin-proposal-class-properties',
-                        '@babel/plugin-syntax-dynamic-import',
-                        [
-                            '@babel/plugin-transform-runtime', {
-                            'corejs': 2,
-                        },
-                        ],
-                        [
-                            '@babel/plugin-proposal-object-rest-spread', {
-                            'useBuiltIns': true
-                        },
-                        ]
-                    ],
-                },
-            },
-        },
-        {
-            test: /\.js$/,
-            exclude: /node_modules/,
-            use: {
-                loader: 'babel-loader?cacheDirectory',
-                options: {
-                    presets: ['@babel/preset-react',
-                        ['@babel/preset-env',{
-                            'targets': {
-                                'chrome': '70'
-                            },
-                            'modules': false,
-                            'loose': true,
-                            'useBuiltIns': 'usage',
-                            'debug': true,
-                            'corejs': { version: 3, proposals: true }
-                        },
-                        ]
-                    ],
-                    plugins: [
-                        '@babel/plugin-proposal-class-properties',
-                        '@babel/plugin-syntax-dynamic-import',
-                        [
-                            '@babel/plugin-transform-runtime', {
-                                'corejs': 2,
-                            },
-                        ],
-                        [
-                            '@babel/plugin-proposal-object-rest-spread', {
-                            'useBuiltIns': true
-                        },
-                        ]
-                    ],
+                    presets,
+                    plugins,
                 },
             },
         },
