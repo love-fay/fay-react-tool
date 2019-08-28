@@ -1,6 +1,6 @@
 {
   "name": "@fay-react/tool",
-  "version": "0.0.1-alpha.13",
+  "version": "0.0.1-alpha.14",
   "description": "fay react tool",
   "scripts": {
     "start": "node_modules/.bin/webpack-cli serve --config ./app/webpack.config.dev.js --color --progress",
@@ -77,6 +77,9 @@
     "style-loader": "1.0.0",
     "terser-webpack-plugin": "^1.4.1",
     "ts-loader": "^6.0.4",
+    "tslint": "^5.19.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-react": "^4.0.0",
     "typescript": "^3.5.3",
     "webpack": "4.39.2",
     "webpack-cli": "3.3.6",
