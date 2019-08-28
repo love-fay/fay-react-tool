@@ -6,10 +6,10 @@ Let's focus attention in our applications.
 ***
 
 ####config
-* [babel]()
-* nginx
-* typescript
-* webpack
+* [babel](https://github.com/love-fay/fay-react-tool/tree/master/config/babel)
+* [nginx](https://github.com/love-fay/fay-react-tool/tree/master/config/nginx)
+* [typescript](https://github.com/love-fay/fay-react-tool/tree/master/config/typescript)
+* [webpack](https://github.com/love-fay/fay-react-tool/tree/master/config/webpack)
 
 #Usage
 
