@@ -4,7 +4,7 @@ const cssnanoFromPostcss = require('cssnano');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const Fiber = require('fibers');
 const { dirname, join, resolve } = require('path');
-const {plugins, presets} = require('../../babel/dev/babel.config');
+const babelOptions = require('../../babel/dev/config');
 
 module.exports = {
     rules: [
@@ -36,10 +36,7 @@ module.exports = {
             exclude: /node_modules/,
             use: {
                 loader: 'babel-loader?cacheDirectory',
-                options: {
-                    presets,
-                    plugins,
-                },
+                options: babelOptions,
             },
         },
         {

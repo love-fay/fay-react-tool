@@ -2,7 +2,7 @@ const autoprefixerFromPostcss = require('autoprefixer');
 const cssnanoFromPostcss = require('cssnano');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const Fiber = require('fibers');
-const {plugins, presets} = require('../../babel/pro/babel.config');
+const babelOptions = require('../../babel/pro/config');
 
 module.exports = {
     rules: [
@@ -34,10 +34,7 @@ module.exports = {
             exclude: /node_modules/,
             use: {
                 loader: 'babel-loader',
-                options: {
-                    presets,
-                    plugins,
-                },
+                options: babelOptions,
             },
         },
         {
