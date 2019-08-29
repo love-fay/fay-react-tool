@@ -9,7 +9,7 @@ const presets = [
       chrome: 70
     },
     modules: false,
-    loose: true,
+    // loose: true,
     useBuiltIns: "usage",
     corejs: { version: 3, proposals: true },
     debug: true

@@ -1,7 +1,7 @@
 const presets = [
   ["@babel/preset-env",{
     targets: {
-      node: 'current'
+      chrome: 70
     }
   }],
   '@babel/preset-react',
