@@ -19,6 +19,7 @@ module.exports = {
 
   // Indicates whether the coverage information should be collected while executing the test
   // collectCoverage: false,
+  collectCoverage: true,
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
   // collectCoverageFrom: null,
@@ -27,9 +28,9 @@ module.exports = {
   coverageDirectory: "coverage",
 
   // An array of regexp pattern strings used to skip coverage collection
-  // coveragePathIgnorePatterns: [
-  //   "/node_modules/"
-  // ],
+  coveragePathIgnorePatterns: [
+    "/node_modules/"
+  ],
 
   // A list of reporter names that Jest uses when writing coverage reports
   // coverageReporters: [
@@ -41,21 +42,14 @@ module.exports = {
 
   // An object that configures minimum threshold enforcement for coverage results
   // coverageThreshold: null,
-  // coverageThreshold: { //测试覆盖率, 阈值不满足，就返回测试失败
-  //
-  //   global: {
-  //
-  //     branches: 90,
-  //
-  //     functions: 90,
-  //setupFiles
-  //     lines: 90,
-  //
-  //     statements: 90,
-  //
-  //   },
-  //
-  // },
+  coverageThreshold: { //测试覆盖率, 阈值不满足，就返回测试失败
+    global: {
+      branches: 90,
+      functions: 90,
+      lines: 90,
+      statements: 90,
+    },
+  },
 
   // A path to a custom dependency extractor
   // dependencyExtractor: null,
