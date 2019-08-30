@@ -1,6 +1,6 @@
 {
   "name": "@fay-react/tool",
-  "version": "0.0.1-alpha.21",
+  "version": "0.0.1-alpha.22",
   "description": "fay react tool",
   "scripts": {
     "start": "node_modules/.bin/webpack-cli serve --config ./app/webpack.config.dev.js --color --progress",
@@ -48,6 +48,9 @@
     "@babel/preset-typescript": "^7.3.3",
     "@babel/runtime": "7.5.5",
     "@babel/runtime-corejs2": "7.5.5",
+    "@types/enzyme": "^3.10.3",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
+    "@types/enzyme-to-json": "^1.5.3",
     "@types/jest": "^24.0.18",
     "@types/react-test-renderer": "^16.9.0",
     "@webpack-cli/serve": "^0.1.8",
@@ -61,6 +64,9 @@
     "core-js": "^3.2.1",
     "css-loader": "3.2.0",
     "cssnano": "4.1.10",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "enzyme-to-json": "^3.4.0",
     "extract-loader": "3.1.0",
     "fibers": "4.0.1",
     "file-loader": "4.2.0",

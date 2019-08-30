@@ -187,8 +187,8 @@ module.exports = {
   //   "/node_modules/"
   // ],
   // "transformIgnorePatterns": [
-    // Change MODULE_NAME_HERE to your module that isn't being compiled
-    // "/node_modules/(?!@fay-react/lib/**).+\\.js$"
+  // Change MODULE_NAME_HERE to your module that isn't being compiled
+  // "/node_modules/(?!@fay-react/lib/**).+\\.js$"
   // ],
   "transform": {
     "^.+\\.(js|jsx|ts|tsx)$": "babel-jest",
