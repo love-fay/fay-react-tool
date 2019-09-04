@@ -1,6 +1,7 @@
 /**
  * Created by feichongzheng on 16/12/7.
  */
+const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const webpackModule = require('./module');
@@ -46,6 +47,7 @@ module.exports = ({rootDir, template, entry}) => {
             new CleanWebpackPlugin(),
             getCopyPlugin(rootDir),
             getMiniCssExtractPlugin(),
+            new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /zh-cn/),
             new HtmlWebpackPlugin({
                 template: template,
             }),

@@ -45,6 +45,7 @@ module.exports = ({rootDir, port = '8000', template, entry}) => {
             new CleanWebpackPlugin(),
             getCopyPlugin(rootDir),
             getMiniCssExtractPlugin(),
+            new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /zh-cn/),
             new HtmlWebpackPlugin({
                 template: template,
             }),
