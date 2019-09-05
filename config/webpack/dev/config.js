@@ -17,7 +17,7 @@ module.exports = ({rootDir, port = '8000', template, entry}) => {
         entry: ['raf/polyfill', 'whatwg-fetch', entry],
         output: {
             path: rootDir + '/public',
-            filename: 'js/[name].[hash:8].bundle.js'
+            filename: 'js/[name].bundle.js'
         },
 
         module: webpackModule,
