@@ -1,24 +1,14 @@
 module.exports = {
     cacheGroups:{
-        vendor1: {
+        react: {
             test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
             name: 'react~react-dom',
             chunks: 'all',
         },
-        vendor2: {
-            test: /[\\/]node_modules[\\/](moment)[\\/]/,
-            name: 'moment',
+        lib: {
+            test: /[\\/]node_modules[\\/](moment|react-router|react-router-dom|history|redux|react-redux|redux-saga)[\\/]/,
+            name: 'moment~react-router~redux*',
             chunks: 'all',
-        },
-        vendor3: {
-            test: /[\\/]node_modules[\\/](redux|react-redux|redux-saga)[\\/]/,
-            name: 'redux~react-redux~redux-saga',
-            chunks: 'all',
-        },
-        vendor4: {
-            test: /[\\/]node_modules[\\/](react-router|react-router-dom|history)[\\/]/,
-            name: 'react-router~history',
-            chunks: 'all',
-        },
+        }
     }
 };
