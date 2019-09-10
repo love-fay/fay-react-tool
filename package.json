@@ -1,11 +1,11 @@
 {
   "name": "@fay-react/tool",
-  "version": "0.0.1-alpha.28",
+  "version": "0.0.1-alpha.29",
   "description": "fay react tool",
   "scripts": {
     "start": "node_modules/.bin/webpack-cli serve --config ./app/webpack.config.dev.js --color --progress",
     "build": "node_modules/.bin/webpack-cli --config ./app/webpack.config.pro.js --color --progress",
-    "pub": "rm -rf pub && mkdir pub && cp -r config pub/config && cp package.json pub && cp README.md pub && cd pub && npm publish && cd .. && rm -rf pub"
+    "pub": "rm -rf pub && mkdir pub && cp -r config pub/config && cp -r ca pub/ca && cp package.json pub && cp README.md pub && cd pub && npm publish && cd .. && rm -rf pub"
   },
   "private": false,
   "keywords": [
