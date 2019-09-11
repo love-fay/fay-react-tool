@@ -10,7 +10,7 @@ const getMiniCssExtractPlugin = require('./miniCssExtractPlugin');
 const optimization = require('./optimization');
 const getServer = require('./server');
 
-module.exports = ({rootDir, port = '8080', template, entry, https=false}) => {
+module.exports = ({rootDir, port = '8000', template, entry, https=false}) => {
     return {
         mode: 'development',
         entry: ['raf/polyfill', 'whatwg-fetch', entry],
