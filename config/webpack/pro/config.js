@@ -6,6 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const webpackModule = require('./module');
 const getCopyPlugin = require('./copyPlugin');
+const pwaPlugin = require('../pwaPlugin');
 const getMiniCssExtractPlugin = require('./miniCssExtractPlugin');
 const optimization = require('./optimization');
 
@@ -51,6 +52,7 @@ module.exports = ({rootDir, template, entry}) => {
             new HtmlWebpackPlugin({
                 template: template,
             }),
+            pwaPlugin
         ],
     }
 };

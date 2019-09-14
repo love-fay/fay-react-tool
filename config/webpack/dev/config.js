@@ -9,8 +9,9 @@ const getCopyPlugin = require('./copyPlugin');
 const getMiniCssExtractPlugin = require('./miniCssExtractPlugin');
 const optimization = require('./optimization');
 const getServer = require('./server');
+const pwaPlugin = require('../pwaPlugin');
 
-module.exports = ({rootDir, port = '8000', template, entry, https=false}) => {
+module.exports = ({rootDir, port = '8000', template, entry, https=false, pwa=false}) => {
     return {
         mode: 'development',
         entry: ['raf/polyfill', 'whatwg-fetch', entry],
@@ -49,6 +50,7 @@ module.exports = ({rootDir, port = '8000', template, entry, https=false}) => {
                 template: template,
             }),
             new webpack.HotModuleReplacementPlugin(),
+            pwa && pwaPlugin
         ],
 
         devtool: 'inline-source-map',

@@ -1,6 +1,6 @@
 {
   "name": "@fay-react/tool",
-  "version": "0.0.1-alpha.31",
+  "version": "0.0.1-alpha.32",
   "description": "fay react tool",
   "scripts": {
     "start": "node_modules/.bin/webpack-cli serve --config ./app/webpack.config.dev.js --color --progress",
@@ -72,6 +72,7 @@
     "file-loader": "4.2.0",
     "gzip-loader": "0.0.1",
     "html-webpack-plugin": "3.2.0",
+    "http-server": "^0.11.1",
     "identity-obj-proxy": "3.0.0",
     "jest": "24.9.0",
     "json-loader": "0.5.7",
@@ -97,7 +98,8 @@
     "webpack": "4.39.2",
     "webpack-cli": "3.3.6",
     "webpack-dev-server": "3.8.0",
-    "whatwg-fetch": "3.0.0"
+    "whatwg-fetch": "3.0.0",
+    "workbox-webpack-plugin": "^4.3.1"
   },
   "devEngines": {
     "node": "8.x || 9.x || 10.x"
