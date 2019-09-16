@@ -5,6 +5,7 @@ const webpackModule = require('./module');
 const optimization = require('./optimization');
 const getServer = require('./server');
 const getPlugins = require('./plugins');
+const path = require('path');
 
 module.exports = ({rootDir, port = '8000', template, entry, https=false, pwa=false}) => {
     return {

@@ -1,6 +1,6 @@
 {
   "name": "@fay-react/tool",
-  "version": "0.0.1-alpha.33",
+  "version": "0.0.1-alpha.34",
   "description": "fay react tool",
   "scripts": {
     "start": "node_modules/.bin/webpack-cli serve --config ./app/webpack.config.dev.js --color --progress",
