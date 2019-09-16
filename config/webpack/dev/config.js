@@ -1,20 +1,15 @@
 /**
  * Created by feichongzheng on 16/12/7.
  */
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const webpackModule = require('./module');
-const getCopyPlugin = require('./copyPlugin');
-const getMiniCssExtractPlugin = require('./miniCssExtractPlugin');
 const optimization = require('./optimization');
 const getServer = require('./server');
-const pwaPlugin = require('../pwaPlugin');
+const getPlugins = require('./plugins');
 
 module.exports = ({rootDir, port = '8000', template, entry, https=false, pwa=false}) => {
     return {
         mode: 'development',
-        entry: ['raf/polyfill', 'whatwg-fetch', entry],
+        entry: ['raf/polyfill', 'whatwg-fetch', path.join(rootDir, 'node_modules/@fay-react/tool/config/sw/'+(pwa ? 'registry.js':'unRegistry.js')), entry],
         output: {
             path: rootDir + '/public',
             filename: 'js/[name].bundle.js'
@@ -28,6 +23,12 @@ module.exports = ({rootDir, port = '8000', template, entry, https=false, pwa=fal
             extensions: [ '.tsx', '.ts', '.js', '.scss' ]
         },
 
+        plugins: getPlugins({rootDir, template, pwa}),
+
+        devtool: 'inline-source-map',
+
+        devServer: getServer(rootDir, port, entry, https),
+
         // node: {
         //     fs: 'empty'
         // },
@@ -40,21 +41,5 @@ module.exports = ({rootDir, port = '8000', template, entry, https=false, pwa=fal
         //         './jszip': 'jszip'
         //     }
         // ],
-
-        plugins: [
-            new CleanWebpackPlugin(),
-            getCopyPlugin(rootDir),
-            getMiniCssExtractPlugin(),
-            new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /zh-cn/),
-            new HtmlWebpackPlugin({
-                template: template,
-            }),
-            new webpack.HotModuleReplacementPlugin(),
-            pwa && pwaPlugin
-        ],
-
-        devtool: 'inline-source-map',
-
-        devServer: getServer(rootDir, port, entry, https),
     };
 };

@@ -9,6 +9,7 @@ const getCopyPlugin = require('./copyPlugin');
 const pwaPlugin = require('../pwaPlugin');
 const getMiniCssExtractPlugin = require('./miniCssExtractPlugin');
 const optimization = require('./optimization');
+const path = require('path');
 
 module.exports = ({rootDir, template, entry}) => {
     return {
@@ -16,29 +17,16 @@ module.exports = ({rootDir, template, entry}) => {
 
         stats: {children: false},
 
-        entry: ['raf/polyfill', 'whatwg-fetch', entry],
+        entry: ['raf/polyfill', 'whatwg-fetch', path.join(rootDir, 'node_modules/@fay-react/tool/config/sw/registry.js'), entry],
 
         output: {
             path: rootDir + '/dist',
-            filename: 'js/[name]-[hash:8].js',
+            filename: 'js/[name]-[contenthash:8].js',
         },
 
         resolve: {
             extensions: [ '.tsx', '.ts', '.js', '.scss' ]
         },
-
-        // node: {
-        //     fs: 'empty'
-        // },
-        //
-        // externals: [
-        //     {
-        //         './cptable': 'var cptable'
-        //     },
-        //     {
-        //         './jszip': 'jszip'
-        //     }
-        // ],
 
         module: webpackModule,
 
@@ -54,5 +42,17 @@ module.exports = ({rootDir, template, entry}) => {
             }),
             pwaPlugin
         ],
+        // node: {
+        //     fs: 'empty'
+        // },
+        //
+        // externals: [
+        //     {
+        //         './cptable': 'var cptable'
+        //     },
+        //     {
+        //         './jszip': 'jszip'
+        //     }
+        // ],
     }
 };
