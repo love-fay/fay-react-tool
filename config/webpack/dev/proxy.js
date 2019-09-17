@@ -9,8 +9,9 @@ function getProxy(rootDir){
         if(status.isFile()){
             const appProxy = require(filePath);
             appProxy.map((item, i) => {
-                proxy = {...proxy, ['/'+item.path]: {target: item.target, pathRewrite: {['^/'+item.path]: ''}, changeOrigin: true}};
-                console.log('proxy: /'+item.path+'->'+item.target);
+                const {path, target, changeOrigin=false} = item;
+                proxy = {...proxy, ['/'+path]: {target, pathRewrite: {['^/'+path]: ''}, changeOrigin}};
+                console.log('proxy: /'+path+'->'+target);
             })
         }
     } catch (e) {
