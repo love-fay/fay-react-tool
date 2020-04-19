@@ -7,7 +7,7 @@ module.exports = {
         },
         lib: {
             test: /[\\/]node_modules[\\/](moment|react-router|react-router-dom|history|redux|react-redux|redux-saga)[\\/]/,
-            name: 'moment~react-router~redux*',
+            name: 'moment~react-router~redux',
             chunks: 'all',
         }
     }

@@ -44,10 +44,10 @@ module.exports = {
   // coverageThreshold: null,
   coverageThreshold: { //测试覆盖率, 阈值不满足，就返回测试失败
     global: {
-      branches: 90,
-      functions: 90,
-      lines: 90,
-      statements: 90,
+      branches: 30,
+      functions: 30,
+      lines: 30,
+      statements: 30,
     },
   },
 
@@ -140,11 +140,11 @@ module.exports = {
 
   // The paths to modules that run some code to configure or set up the testing environment before each test
   // setupFiles: [],
-  setupFiles: ['@fay-react/tool/config/jest/setupTests.js'],
+  setupFiles: ['@keystore/tool/config/jest/setupTests.js'],
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
   // setupFilesAfterEnv: [],
-  setupFilesAfterEnv: ['@fay-react/tool/config/jest/canary.js'],
+  setupFilesAfterEnv: ['@keystore/tool/config/jest/canary.js'],
 
   // A list of paths to snapshot serializer modules Jest should use for snapshot testing
   // snapshotSerializers: [],

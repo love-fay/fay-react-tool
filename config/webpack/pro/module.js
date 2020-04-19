@@ -1,7 +1,7 @@
 const autoprefixerFromPostcss = require('autoprefixer');
 const cssnanoFromPostcss = require('cssnano');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const Fiber = require('fibers');
+// const Fiber = require('fibers');
 const babelOptions = require('../../babel/pro/config');
 
 module.exports = {
@@ -78,7 +78,7 @@ module.exports = {
                 options: {
                     includePaths: ['./node_modules'],
                     implementation: require("sass"),
-                    fiber: Fiber
+                    // fiber: Fiber
                 }
             }]
         },
