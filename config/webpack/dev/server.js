@@ -28,9 +28,9 @@ function getServer(rootDir, port, entry, https){
         ...proxy,
         http2: true,
         https: {
-            key: fs.readFileSync(path.join(rootDir, 'node_modules/@keystore/tool/ca/server.key')),
-            cert: fs.readFileSync(path.join(rootDir, 'node_modules/@keystore/tool/ca/server.crt')),
-            ca: fs.readFileSync(path.join(rootDir, 'node_modules/@keystore/tool/ca/server.csr')),
+            key: fs.readFileSync(path.join(rootDir, 'node_modules/@fay-react/tool/ca/server.key')),
+            cert: fs.readFileSync(path.join(rootDir, 'node_modules/@fay-react/tool/ca/server.crt')),
+            ca: fs.readFileSync(path.join(rootDir, 'node_modules/@fay-react/tool/ca/server.csr')),
         }
     };
 

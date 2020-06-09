@@ -18,8 +18,8 @@ module.exports = ({rootDir, port = '8000', template, entry, https=false, pwaEnab
             "regenerator-runtime/runtime",
             'raf/polyfill',
             'whatwg-fetch',
-            path.join(rootDir, 'node_modules/@keystore/tool/pollyfills/custom-event.js'),
-            path.join(rootDir, 'node_modules/@keystore/tool/config/sw/'+(pwaEnable ? 'registry.js':'unRegistry.js')),
+            path.join(rootDir, 'node_modules/@fay-react/tool/pollyfills/custom-event.js'),
+            path.join(rootDir, 'node_modules/@fay-react/tool/config/sw/'+(pwaEnable ? 'registry.js':'unRegistry.js')),
             entry
         ],
         output: {

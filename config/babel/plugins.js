@@ -18,7 +18,6 @@ const plugins = [
     require.resolve('babel-plugin-module-resolver'),
     {
       alias: {
-        "@keystore/web": path.resolve(rootDir, 'src'),
         '@': path.resolve(rootDir, 'src')
       }
     }

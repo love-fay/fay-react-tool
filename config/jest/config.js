@@ -140,11 +140,11 @@ module.exports = {
 
   // The paths to modules that run some code to configure or set up the testing environment before each test
   // setupFiles: [],
-  setupFiles: ['@keystore/tool/config/jest/setupTests.js'],
+  setupFiles: ['@fay-react/tool/config/jest/setupTests.js'],
 
   // A list of paths to modules that run some code to configure or set up the testing framework before each test
   // setupFilesAfterEnv: [],
-  setupFilesAfterEnv: ['@keystore/tool/config/jest/canary.js'],
+  setupFilesAfterEnv: ['@fay-react/tool/config/jest/canary.js'],
 
   // A list of paths to snapshot serializer modules Jest should use for snapshot testing
   // snapshotSerializers: [],

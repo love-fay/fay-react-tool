@@ -26,8 +26,8 @@ module.exports = ({rootDir, template, entry, pwa}) => {
             "regenerator-runtime/runtime",
             'raf/polyfill',
             'whatwg-fetch',
-            path.join(rootDir, 'node_modules/@keystore/tool/pollyfills/custom-event.js'),
-            path.join(rootDir, 'node_modules/@keystore/tool/config/sw/registry.js'),
+            path.join(rootDir, 'node_modules/@fay-react/tool/pollyfills/custom-event.js'),
+            path.join(rootDir, 'node_modules/@fay-react/tool/config/sw/registry.js'),
             entry
         ],
 

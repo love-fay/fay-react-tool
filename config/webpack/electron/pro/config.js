@@ -26,8 +26,8 @@ module.exports = ({rootDir, entry}) => ({
     },
 
     externals: {
-        ['@keystore/node-device']: 'commonjs @keystore/node-device',
-        ['@keystore/node-scard']: 'commonjs @keystore/node-scard',
+        ['@fay-react/node-device']: 'commonjs @fay-react/node-device',
+        ['@fay-react/node-scard']: 'commonjs @fay-react/node-scard',
     },
 
     module: webpackModule,
@@ -38,7 +38,7 @@ module.exports = ({rootDir, entry}) => ({
         new CleanWebpackPlugin(),
         getCopyPlugin(rootDir),
         new webpack.DefinePlugin({
-            'process.env.KEYSTORE_WEB': JSON.stringify(process.env.KEYSTORE_WEB)
+            'process.env.WEB': JSON.stringify(process.env.WEB)
         })
     ],
 });

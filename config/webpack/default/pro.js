@@ -4,7 +4,7 @@ const rootDir = path.join(__dirname, '/../../../../../..');
 
 module.exports = config({
     rootDir: rootDir,
-    template: path.join(rootDir, '/node_modules/@keystore/tool/config/index.html'),
+    template: path.join(rootDir, '/node_modules/@fay-react/tool/config/index.html'),
     entry: path.join(rootDir, '/src'),
     pwa: {}
 });
